@@ -1,9 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MakersMarkt.Data
 {
@@ -11,11 +7,16 @@ namespace MakersMarkt.Data
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; } // maker, buyer, moderator
+        public string PasswordHash { get; set; }  
+        public string Role { get; set; } // maker, koper, moderator
         public decimal Credit { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         public List<Product> Products { get; set; }
         public List<Order> Orders { get; set; }
+        public List<Notification> Notifications { get; set; }
+        public List<Review> Reviews { get; set; }
+        public List<CreditTransaction> SentTransactions { get; set; }
+        public List<CreditTransaction> ReceivedTransactions { get; set; }
     }
 }
