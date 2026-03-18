@@ -56,7 +56,7 @@ namespace MakersMarkt.Pages.Login
                 {
                     Username = username,
                     PasswordHash = hashedPassword,
-                    Role = "koper", // standaard rol bij registratie
+                    Role = "koper", // Always with making a new account, the role is set to "koper"
                     CreatedAt = DateTime.Now
                 };
 

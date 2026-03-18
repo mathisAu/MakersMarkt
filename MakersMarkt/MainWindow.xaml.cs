@@ -33,7 +33,7 @@ namespace MakersMarkt
 
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            // Start de app met de LoginPage
+            // Start the app on LoginPage
             MainFrame.Navigate(typeof(LoginPage));
         }
     }
