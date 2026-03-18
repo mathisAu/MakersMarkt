@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj": {}
+    "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj": {
+    "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj",
         "projectName": "MakersMarkt",
-        "projectPath": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj",
+        "projectPath": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt.csproj",
         "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\obj\\",
+        "outputPath": "C:\\Users\\mathi\\source\\repos\\MakersMarkt\\MakersMarkt\\MakersMarkt\\MakersMarkt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,6 +58,10 @@
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
               "version": "[1.8.260209005, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
