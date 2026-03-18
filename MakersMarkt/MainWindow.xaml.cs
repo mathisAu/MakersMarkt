@@ -1,5 +1,6 @@
 using MakersMarkt.Data;
 using MakersMarkt.Pages;
+using MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -32,7 +33,7 @@ namespace MakersMarkt
 
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            // Start de app met de LoginPage
+            // Start the app on LoginPage
             MainFrame.Navigate(typeof(LoginPage));
         }
     }

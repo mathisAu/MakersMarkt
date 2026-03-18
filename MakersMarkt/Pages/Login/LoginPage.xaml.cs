@@ -1,31 +1,73 @@
+using MakersMarkt.Data;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using MakersMarkt.Pages.Product;
+using MakersMarkt.Pages.Moderator;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
-namespace MakersMarkt.Pages
+namespace MakersMarkt.Pages.Login
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class LoginPage : Page
     {
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            AttemptLogin();
+        }
+
+        private void AttemptLogin()
+        {
+            ErrorMessage.Visibility = Visibility.Collapsed;
+
+            string enteredUsername = usernameTextBox.Text.Trim();
+            string enteredPassword = passwordBox.Password;
+
+            if (string.IsNullOrEmpty(enteredUsername) || string.IsNullOrEmpty(enteredPassword))
+            {
+                ShowError("Vul zowel gebruikersnaam als wachtwoord in.");
+                return;
+            }
+
+            LoginButton.IsEnabled = false;
+
+            using (var db = new AppDbContext())
+            {
+                var user = db.Users.FirstOrDefault(u =>
+                    u.Username.ToLower() == enteredUsername.ToLower());
+
+                if (user == null || !BCrypt.Net.BCrypt.Verify(enteredPassword, user.PasswordHash))
+                {
+                    ShowError("Onjuiste gebruikersnaam of wachtwoord.");
+                    LoginButton.IsEnabled = true;
+                    return;
+                }
+
+                LoggedInUser.CurrentUser = user;
+
+                if (user.Role == "moderator")
+                    Frame.Navigate(typeof(ModeratorPanelPage));
+                else
+                    Frame.Navigate(typeof(ProductPage));
+            }
+
+            LoginButton.IsEnabled = true;
+        }
+
+        private void ShowError(string message)
+        {
+            ErrorMessage.Text = message;
+            ErrorMessage.Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red);
+            ErrorMessage.Visibility = Visibility.Visible;
+        }
+
+        private void RegisterLink_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RegisterPage));
         }
     }
 }

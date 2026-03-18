@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="MakersMarkt.Pages.RegisterPage"
+    x:Class="MakersMarkt.Pages.Login.RegisterPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MakersMarkt.Pages"
+    xmlns:local="using:MakersMarkt.Pages.Login"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid>
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="350"
+                Padding="30"
+                CornerRadius="8"
+                BorderThickness="1">
+            <StackPanel Spacing="15">
 
+                <TextBlock Text="MakersMarkt"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Registreren"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+
+                <TextBox x:Name="usernameTextBox"
+                         Header="Gebruikersnaam"
+                         PlaceholderText="Kies een gebruikersnaam"/>
+
+                <PasswordBox x:Name="passwordBox"
+                             Header="Wachtwoord"
+                             PlaceholderText="Kies een wachtwoord"/>
+
+                <PasswordBox x:Name="confirmPasswordBox"
+                             Header="Wachtwoord bevestigen"
+                             PlaceholderText="Herhaal je wachtwoord"/>
+
+                <TextBlock x:Name="ErrorMessage"
+                           Text=""
+                           Foreground="Red"
+                           Visibility="Collapsed"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           FontWeight="SemiBold"/>
+
+                <Button x:Name="RegisterButton"
+                        Content="Registreren"
+                        HorizontalAlignment="Stretch"
+                        Click="RegisterButton_Click"
+                        Margin="0,10,0,0"/>
+
+                <HyperlinkButton Click="LoginLink_Click"
+                                 HorizontalAlignment="Center">
+                    Al een account? Log hier in.
+                </HyperlinkButton>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
