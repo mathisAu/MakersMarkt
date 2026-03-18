@@ -11,5 +11,47 @@
     <None Update="Package.appxmanifest">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="Pages\MyProductsPage .xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Moderator\ModeratorStatsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Moderator\ModeratorUsersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Moderator\ModeratorProductsPage .xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Moderator\ModeratorPanelPage .xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\EditProductPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AddProductPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\NotificationsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ReviewPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\OrdersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ProductPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
