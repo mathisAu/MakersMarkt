@@ -49,7 +49,6 @@ namespace MakersMarkt.Pages.Login
 
                 LoggedInUser.CurrentUser = user;
 
-                // Navigeer op basis van rol
                 if (user.Role == "moderator")
                     Frame.Navigate(typeof(ModeratorPanelPage));
                 else

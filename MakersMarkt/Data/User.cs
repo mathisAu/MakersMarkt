@@ -7,8 +7,8 @@ namespace MakersMarkt.Data
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public string PasswordHash { get; set; }  
-        public string Role { get; set; } // maker, koper, moderator
+        public string PasswordHash { get; set; }
+        public string Role { get; set; } 
         public decimal Credit { get; set; }
         public DateTime CreatedAt { get; set; }
 

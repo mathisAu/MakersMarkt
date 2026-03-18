@@ -30,34 +30,25 @@ namespace MakersMarkt.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User
-                {
-                    Id = 1,
-                    Username = "moderator",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("mod123"),
-                    Role = "moderator",
-                    Credit = 9999,
-                    CreatedAt = new DateTime(2026, 1, 1)
-                },
-                new User
-                {
-                    Id = 2,
-                    Username = "maker1",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("maker123"),
-                    Role = "maker",
-                    Credit = 0,
-                    CreatedAt = new DateTime(2026, 1, 1)
-                },
-                new User
-                {
-                    Id = 3,
-                    Username = "koper1",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("koper123"),
-                    Role = "koper",
-                    Credit = 100,
-                    CreatedAt = new DateTime(2026, 1, 1)
-                }
-            );
+              new User
+              {
+                  Id = 1,
+                  Username = "moderator",
+                  PasswordHash = BCrypt.Net.BCrypt.HashPassword("mod123"),
+                  Role = "moderator",
+                  Credit = 9999,
+                  CreatedAt = new DateTime(2026, 1, 1)
+              },
+              new User
+              {
+                  Id = 2,
+                  Username = "gebruiker1",
+                  PasswordHash = BCrypt.Net.BCrypt.HashPassword("gebruiker123"),
+                  Role = "gebruiker",
+                  Credit = 100,
+                  CreatedAt = new DateTime(2026, 1, 1)
+              }
+          );
 
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Sieraden" },
