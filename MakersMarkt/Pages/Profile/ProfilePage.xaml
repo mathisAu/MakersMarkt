@@ -8,7 +8,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Padding="20" RowDefinitions="Auto,*">
+        <!-- Header -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center"
+                    Spacing="12">
+            <Button Content="Home" Click="HomeButton_Click"/>
+            <Button Content="Items" Click="ItemsButton_Click"/>
+            <Button Content="Settings" Click="SettingsButton_Click"/>
+        </StackPanel>
 
+        <!-- Main content -->
+        <ScrollViewer Grid.Row="1" Margin="0,20,0,0">
+                <!-- User info -->
+           
+
+                <StackPanel Spacing="12" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding User.Username}" 
+               FontSize="20" 
+               FontWeight="Bold"
+               TextAlignment="Center"/>
+                    <TextBlock Text="{Binding User.Description}" 
+               TextWrapping="WrapWholeWords" 
+               MaxWidth="700"
+               TextAlignment="Center"/>
+
+                    <!-- Former projects header + See more -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12" Margin="0,20,0,0">
+                    <TextBlock Text="Former projects" FontSize="16" FontWeight="SemiBold"/>
+                    <Button Content="See more" Click="SeeMore_Click"/>
+                </StackPanel>
+
+                <!-- GridView met producten -->
+                    <GridView ItemsSource="{Binding Products}" 
+                          IsItemClickEnabled="True" 
+                          ItemClick="Product_ItemClick">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Width="220" Margin="8">
+                                    <Border Height="140" Background="#EEE" CornerRadius="6">
+                                        <Image Source="{Binding ImageUrl}" Stretch="UniformToFill"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                                    <TextBlock Text="{Binding Price}" Foreground="Gray" FontSize="12"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

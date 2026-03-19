@@ -130,7 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Login\" />
-    <Folder Include="Pages\Product\" />
     <Folder Include="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
