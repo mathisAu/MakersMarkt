@@ -52,7 +52,7 @@ namespace MakersMarkt.Pages.Login
                 if (user.Role == "moderator")
                     Frame.Navigate(typeof(ModeratorPanelPage));
                 else
-                    Frame.Navigate(typeof(ProductPage));
+                    Frame.Navigate(typeof(ProfilePage));
             }
 
             LoginButton.IsEnabled = true;

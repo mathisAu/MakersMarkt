@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MakersMarkt")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86c122589b5c1f919fdd3be12700e4e481e9a418")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c87a14444f63512c18dc2da7cf910b371f85cf4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MakersMarkt")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MakersMarkt")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -226,7 +226,7 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[27];
+            _typeNameTable = new string[35];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -250,12 +250,20 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
             _typeNameTable[20] = "MakersMarkt.Pages.MyProductsPage";
             _typeNameTable[21] = "MakersMarkt.Pages.NotificationsPage";
             _typeNameTable[22] = "MakersMarkt.Pages.ProfilePage";
-            _typeNameTable[23] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[24] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[25] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[23] = "System.Collections.ObjectModel.ObservableCollection`1<MakersMarkt.Data.Product>";
+            _typeNameTable[24] = "System.Collections.ObjectModel.Collection`1<MakersMarkt.Data.Product>";
+            _typeNameTable[25] = "MakersMarkt.Data.Product";
             _typeNameTable[26] = "Int32";
+            _typeNameTable[27] = "String";
+            _typeNameTable[28] = "System.Decimal";
+            _typeNameTable[29] = "System.ValueType";
+            _typeNameTable[30] = "MakersMarkt.Data.User";
+            _typeNameTable[31] = "MakersMarkt.Data.Category";
+            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[33] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[34] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
 
-            _typeTable = new global::System.Type[27];
+            _typeTable = new global::System.Type[35];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -279,10 +287,18 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
             _typeTable[20] = typeof(global::MakersMarkt.Pages.MyProductsPage);
             _typeTable[21] = typeof(global::MakersMarkt.Pages.NotificationsPage);
             _typeTable[22] = typeof(global::MakersMarkt.Pages.ProfilePage);
-            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[25] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[23] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::MakersMarkt.Data.Product>);
+            _typeTable[24] = typeof(global::System.Collections.ObjectModel.Collection<global::MakersMarkt.Data.Product>);
+            _typeTable[25] = typeof(global::MakersMarkt.Data.Product);
             _typeTable[26] = typeof(global::System.Int32);
+            _typeTable[27] = typeof(global::System.String);
+            _typeTable[28] = typeof(global::System.Decimal);
+            _typeTable[29] = typeof(global::System.ValueType);
+            _typeTable[30] = typeof(global::MakersMarkt.Data.User);
+            _typeTable[31] = typeof(global::MakersMarkt.Data.Category);
+            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[34] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -334,7 +350,12 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
         private object Activate_20_MyProductsPage() { return new global::MakersMarkt.Pages.MyProductsPage(); }
         private object Activate_21_NotificationsPage() { return new global::MakersMarkt.Pages.NotificationsPage(); }
         private object Activate_22_ProfilePage() { return new global::MakersMarkt.Pages.ProfilePage(); }
-        private object Activate_23_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_23_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::MakersMarkt.Data.Product>(); }
+        private object Activate_24_Collection() { return new global::System.Collections.ObjectModel.Collection<global::MakersMarkt.Data.Product>(); }
+        private object Activate_25_Product() { return new global::MakersMarkt.Data.Product(); }
+        private object Activate_30_User() { return new global::MakersMarkt.Data.User(); }
+        private object Activate_31_Category() { return new global::MakersMarkt.Data.Category(); }
+        private object Activate_32_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.MainWindow).TypeHandle);
         private void StaticInitializer_6_LoginPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Pages.Login.LoginPage).TypeHandle);
@@ -352,8 +373,15 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
         private void StaticInitializer_20_MyProductsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Pages.MyProductsPage).TypeHandle);
         private void StaticInitializer_21_NotificationsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Pages.NotificationsPage).TypeHandle);
         private void StaticInitializer_22_ProfilePage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Pages.ProfilePage).TypeHandle);
-        private void StaticInitializer_23_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_25_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_23_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::MakersMarkt.Data.Product>).TypeHandle);
+        private void StaticInitializer_24_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::MakersMarkt.Data.Product>).TypeHandle);
+        private void StaticInitializer_25_Product() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Data.Product).TypeHandle);
+        private void StaticInitializer_28_Decimal() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Decimal).TypeHandle);
+        private void StaticInitializer_29_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_30_User() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Data.User).TypeHandle);
+        private void StaticInitializer_31_Category() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::MakersMarkt.Data.Category).TypeHandle);
+        private void StaticInitializer_32_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_34_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -361,7 +389,19 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_25_IList(object instance, object item)
+        private void VectorAdd_23_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MakersMarkt.Data.Product>)instance;
+            var newItem = (global::MakersMarkt.Data.Product)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_24_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MakersMarkt.Data.Product>)instance;
+            var newItem = (global::MakersMarkt.Data.Product)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_34_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -535,14 +575,92 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
                 userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_22_ProfilePage;
                 userType.StaticInitializer = StaticInitializer_22_ProfilePage;
+                userType.AddMemberName("Products");
+                userType.AddMemberName("User");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 23:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 23:   //  System.Collections.ObjectModel.ObservableCollection`1<MakersMarkt.Data.Product>
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<MakersMarkt.Data.Product>"));
+                userType.StaticInitializer = StaticInitializer_23_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_23_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 24:   //  System.Collections.ObjectModel.Collection`1<MakersMarkt.Data.Product>
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_24_Collection;
+                userType.StaticInitializer = StaticInitializer_24_Collection;
+                userType.CollectionAdd = VectorAdd_24_Collection;
+                xamlType = userType;
+                break;
+
+            case 25:   //  MakersMarkt.Data.Product
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_25_Product;
+                userType.StaticInitializer = StaticInitializer_25_Product;
+                userType.AddMemberName("Id");
+                userType.AddMemberName("Name");
+                userType.AddMemberName("Description");
+                userType.AddMemberName("Type");
+                userType.AddMemberName("Material");
+                userType.AddMemberName("ProductionTime");
+                userType.AddMemberName("Complexity");
+                userType.AddMemberName("Sustainability");
+                userType.AddMemberName("UniqueFeatures");
+                userType.AddMemberName("Price");
+                userType.AddMemberName("ImageUrl");
+                userType.AddMemberName("MakerId");
+                userType.AddMemberName("Maker");
+                userType.AddMemberName("CategoryId");
+                userType.AddMemberName("Category");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 26:   //  Int32
+                xamlType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 27:   //  String
+                xamlType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 28:   //  System.Decimal
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.StaticInitializer = StaticInitializer_28_Decimal;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 29:   //  System.ValueType
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_29_ValueType;
+                xamlType = userType;
+                break;
+
+            case 30:   //  MakersMarkt.Data.User
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_30_User;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 31:   //  MakersMarkt.Data.Category
+                userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_31_Category;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 32:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_23_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_23_TreeViewNode;
+                userType.Activator = Activate_32_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_32_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -554,20 +672,16 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 24:   //  Microsoft.UI.Xaml.DependencyObject
+            case 33:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 25:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 34:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_25_IList;
-                userType.CollectionAdd = VectorAdd_25_IList;
+                userType.StaticInitializer = StaticInitializer_34_IList;
+                userType.CollectionAdd = VectorAdd_34_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
-                break;
-
-            case 26:   //  Int32
-                xamlType = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -638,52 +752,217 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.UseCompactResources = (global::System.Boolean)Value;
         }
-        private object get_1_TreeViewNode_Children(object instance)
+        private object get_1_ProfilePage_Products(object instance)
+        {
+            var that = (global::MakersMarkt.Pages.ProfilePage)instance;
+            return that.Products;
+        }
+        private object get_2_Product_Id(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Id;
+        }
+        private void set_2_Product_Id(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Id = (global::System.Int32)Value;
+        }
+        private object get_3_Product_Name(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Name;
+        }
+        private void set_3_Product_Name(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Name = (global::System.String)Value;
+        }
+        private object get_4_Product_Description(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Description;
+        }
+        private void set_4_Product_Description(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Description = (global::System.String)Value;
+        }
+        private object get_5_Product_Type(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Type;
+        }
+        private void set_5_Product_Type(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Type = (global::System.String)Value;
+        }
+        private object get_6_Product_Material(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Material;
+        }
+        private void set_6_Product_Material(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Material = (global::System.String)Value;
+        }
+        private object get_7_Product_ProductionTime(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.ProductionTime;
+        }
+        private void set_7_Product_ProductionTime(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.ProductionTime = (global::System.Int32)Value;
+        }
+        private object get_8_Product_Complexity(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Complexity;
+        }
+        private void set_8_Product_Complexity(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Complexity = (global::System.String)Value;
+        }
+        private object get_9_Product_Sustainability(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Sustainability;
+        }
+        private void set_9_Product_Sustainability(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Sustainability = (global::System.String)Value;
+        }
+        private object get_10_Product_UniqueFeatures(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.UniqueFeatures;
+        }
+        private void set_10_Product_UniqueFeatures(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.UniqueFeatures = (global::System.String)Value;
+        }
+        private object get_11_Product_Price(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Price;
+        }
+        private void set_11_Product_Price(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Price = (global::System.Decimal)Value;
+        }
+        private object get_12_Product_ImageUrl(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.ImageUrl;
+        }
+        private void set_12_Product_ImageUrl(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.ImageUrl = (global::System.String)Value;
+        }
+        private object get_13_Product_MakerId(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.MakerId;
+        }
+        private void set_13_Product_MakerId(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.MakerId = (global::System.Int32)Value;
+        }
+        private object get_14_Product_Maker(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Maker;
+        }
+        private void set_14_Product_Maker(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Maker = (global::MakersMarkt.Data.User)Value;
+        }
+        private object get_15_Product_CategoryId(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.CategoryId;
+        }
+        private void set_15_Product_CategoryId(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.CategoryId = (global::System.Int32)Value;
+        }
+        private object get_16_Product_Category(object instance)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            return that.Category;
+        }
+        private void set_16_Product_Category(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Data.Product)instance;
+            that.Category = (global::MakersMarkt.Data.Category)Value;
+        }
+        private object get_17_ProfilePage_User(object instance)
+        {
+            var that = (global::MakersMarkt.Pages.ProfilePage)instance;
+            return that.User;
+        }
+        private void set_17_ProfilePage_User(object instance, object Value)
+        {
+            var that = (global::MakersMarkt.Pages.ProfilePage)instance;
+            that.User = (global::MakersMarkt.Data.User)Value;
+        }
+        private object get_18_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_2_TreeViewNode_Content(object instance)
+        private object get_19_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_2_TreeViewNode_Content(object instance, object Value)
+        private void set_19_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_3_TreeViewNode_Depth(object instance)
+        private object get_20_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_4_TreeViewNode_HasChildren(object instance)
+        private object get_21_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_5_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_22_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_5_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_22_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_6_TreeViewNode_IsExpanded(object instance)
+        private object get_23_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_6_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_23_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_7_TreeViewNode_Parent(object instance)
+        private object get_24_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -703,50 +982,152 @@ namespace MakersMarkt.MakersMarkt_XamlTypeInfo
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
+            case "MakersMarkt.Pages.ProfilePage.Products":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Pages.ProfilePage");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Products", "System.Collections.ObjectModel.ObservableCollection`1<MakersMarkt.Data.Product>");
+                xamlMember.Getter = get_1_ProfilePage_Products;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MakersMarkt.Data.Product.Id":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Id", "Int32");
+                xamlMember.Getter = get_2_Product_Id;
+                xamlMember.Setter = set_2_Product_Id;
+                break;
+            case "MakersMarkt.Data.Product.Name":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Name", "String");
+                xamlMember.Getter = get_3_Product_Name;
+                xamlMember.Setter = set_3_Product_Name;
+                break;
+            case "MakersMarkt.Data.Product.Description":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Description", "String");
+                xamlMember.Getter = get_4_Product_Description;
+                xamlMember.Setter = set_4_Product_Description;
+                break;
+            case "MakersMarkt.Data.Product.Type":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Type", "String");
+                xamlMember.Getter = get_5_Product_Type;
+                xamlMember.Setter = set_5_Product_Type;
+                break;
+            case "MakersMarkt.Data.Product.Material":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Material", "String");
+                xamlMember.Getter = get_6_Product_Material;
+                xamlMember.Setter = set_6_Product_Material;
+                break;
+            case "MakersMarkt.Data.Product.ProductionTime":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "ProductionTime", "Int32");
+                xamlMember.Getter = get_7_Product_ProductionTime;
+                xamlMember.Setter = set_7_Product_ProductionTime;
+                break;
+            case "MakersMarkt.Data.Product.Complexity":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Complexity", "String");
+                xamlMember.Getter = get_8_Product_Complexity;
+                xamlMember.Setter = set_8_Product_Complexity;
+                break;
+            case "MakersMarkt.Data.Product.Sustainability":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Sustainability", "String");
+                xamlMember.Getter = get_9_Product_Sustainability;
+                xamlMember.Setter = set_9_Product_Sustainability;
+                break;
+            case "MakersMarkt.Data.Product.UniqueFeatures":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "UniqueFeatures", "String");
+                xamlMember.Getter = get_10_Product_UniqueFeatures;
+                xamlMember.Setter = set_10_Product_UniqueFeatures;
+                break;
+            case "MakersMarkt.Data.Product.Price":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Price", "System.Decimal");
+                xamlMember.Getter = get_11_Product_Price;
+                xamlMember.Setter = set_11_Product_Price;
+                break;
+            case "MakersMarkt.Data.Product.ImageUrl":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "ImageUrl", "String");
+                xamlMember.Getter = get_12_Product_ImageUrl;
+                xamlMember.Setter = set_12_Product_ImageUrl;
+                break;
+            case "MakersMarkt.Data.Product.MakerId":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "MakerId", "Int32");
+                xamlMember.Getter = get_13_Product_MakerId;
+                xamlMember.Setter = set_13_Product_MakerId;
+                break;
+            case "MakersMarkt.Data.Product.Maker":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Maker", "MakersMarkt.Data.User");
+                xamlMember.Getter = get_14_Product_Maker;
+                xamlMember.Setter = set_14_Product_Maker;
+                break;
+            case "MakersMarkt.Data.Product.CategoryId":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "CategoryId", "Int32");
+                xamlMember.Getter = get_15_Product_CategoryId;
+                xamlMember.Setter = set_15_Product_CategoryId;
+                break;
+            case "MakersMarkt.Data.Product.Category":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Data.Product");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Category", "MakersMarkt.Data.Category");
+                xamlMember.Getter = get_16_Product_Category;
+                xamlMember.Setter = set_16_Product_Category;
+                break;
+            case "MakersMarkt.Pages.ProfilePage.User":
+                userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MakersMarkt.Pages.ProfilePage");
+                xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "User", "MakersMarkt.Data.User");
+                xamlMember.Getter = get_17_ProfilePage_User;
+                xamlMember.Setter = set_17_ProfilePage_User;
+                break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_1_TreeViewNode_Children;
+                xamlMember.Getter = get_18_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_2_TreeViewNode_Content;
-                xamlMember.Setter = set_2_TreeViewNode_Content;
+                xamlMember.Getter = get_19_TreeViewNode_Content;
+                xamlMember.Setter = set_19_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_TreeViewNode_Depth;
+                xamlMember.Getter = get_20_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_21_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_5_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_5_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_22_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_22_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_6_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_23_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_23_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::MakersMarkt.MakersMarkt_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_7_TreeViewNode_Parent;
+                xamlMember.Getter = get_24_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }
