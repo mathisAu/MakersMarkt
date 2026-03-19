@@ -9,15 +9,15 @@ namespace MakersMarkt.Data
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<OrderStatusHistory> OrderStatusHistories { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-        public DbSet<CreditTransaction> CreditTransactions { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Order> Orders { get; set; } = null!;
+        public DbSet<OrderItem> OrderItems { get; set; } = null!;
+        public DbSet<OrderStatusHistory> OrderStatusHistories { get; set; } = null!;
+        public DbSet<Review> Reviews { get; set; } = null!;
+        public DbSet<Notification> Notifications { get; set; } = null!;
+        public DbSet<CreditTransaction> CreditTransactions { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,25 +30,27 @@ namespace MakersMarkt.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-              new User
-              {
-                  Id = 1,
-                  Username = "moderator",
-                  PasswordHash = BCrypt.Net.BCrypt.HashPassword("mod123"),
-                  Role = "moderator",
-                  Credit = 9999,
-                  CreatedAt = new DateTime(2026, 1, 1)
-              },
-              new User
-              {
-                  Id = 2,
-                  Username = "gebruiker1",
-                  PasswordHash = BCrypt.Net.BCrypt.HashPassword("gebruiker123"),
-                  Role = "gebruiker",
-                  Credit = 100,
-                  CreatedAt = new DateTime(2026, 1, 1)
-              }
-          );
+                new User
+                {
+                    Id = 1,
+                    Username = "moderator",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("mod123"),
+                    Role = "moderator",
+                    Credit = 9999,
+                    CreatedAt = new DateTime(2026, 1, 1),
+                    Description = "Moderator van MakersMarkt"
+                },
+                new User
+                {
+                    Id = 2,
+                    Username = "gebruiker1",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("gebruiker123"),
+                    Role = "gebruiker",
+                    Credit = 100,
+                    CreatedAt = new DateTime(2026, 1, 1),
+                    Description = "Liefhebber van handgemaakte spullen"
+                }
+            );
 
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Sieraden" },
