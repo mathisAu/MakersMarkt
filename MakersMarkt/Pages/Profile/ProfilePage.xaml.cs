@@ -19,7 +19,6 @@ namespace MakersMarkt.Pages
     public sealed partial class ProfilePage : Page, INotifyPropertyChanged
     {
         public ObservableCollection<MakersMarkt.Data.Product> Products { get; } = new();
-        // ?? FIX 1: User property toevoegen
         private User? _user;
         public User? User
         {
