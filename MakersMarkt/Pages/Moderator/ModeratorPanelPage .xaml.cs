@@ -26,6 +26,34 @@ namespace MakersMarkt.Pages.Moderator
         public ModeratorPanelPage()
         {
             InitializeComponent();
+            AdminContentFrame.Navigate(typeof(ModeratorStatsPage));
+        }
+
+        private void AdminNavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            // Controle voor NavigationItem
+            if (args.SelectedItem is NavigationViewItem item)
+            {
+                // Kijk naar de Tag van het aangeklikte item om te bepalen waar we naartoe navigeren
+                switch (item.Tag)
+                {
+                    case "Dashboard":
+                        // Navigeer naar de ModeratorStatsPage 
+                        AdminContentFrame.Navigate(typeof(ModeratorStatsPage));
+                        break;
+
+                    case "Users":
+                        // Navigeer naar de ModeratorUsersPage
+                        // Hier geef je ook AdminContentFrame mee als parameter (optioneel, afhankelijk van gebruik)
+                        AdminContentFrame.Navigate(typeof(ModeratorUsersPage), AdminContentFrame);
+                        break;
+
+                    case "Products":
+                        // Navigeer naar de ModeratorProductsPage
+                        AdminContentFrame.Navigate(typeof(ModeratorProductsPage));
+                        break;
+                }
+            }
         }
     }
 }
