@@ -44,7 +44,10 @@ namespace MakersMarkt.Data
                     Role = "gebruiker",
                     Credit = 100,
                     CreatedAt = new DateTime(2026, 1, 1),
-                    Description = "Liefhebber van handgemaakte spullen"
+                    Description = "Liefhebber van handgemaakte spullen",
+                    IsModerator = false,
+                    VerifiedById = null
+
                 }
             );
 

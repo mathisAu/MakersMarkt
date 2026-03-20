@@ -15,6 +15,14 @@ namespace MakersMarkt.Data
         public string? Description { get; set; }
         public string? ProfileImageUrl { get; set; }
 
+        //Verificatie
+        public bool IsVerified { get; set; } // Of de gebruiker geverifieerd is
+        public DateTime? VerifiedAt { get; set; } // Wanneer geverifieerd (optioneel)
+        public int? VerifiedById { get; set; }
+
+        //Rolvlaggetje
+        public bool IsModerator { get; set; }
+
         public List<Product> Products { get; set; } = new();
         public List<Order> Orders { get; set; } = new();
         public List<Notification> Notifications { get; set; } = new();
