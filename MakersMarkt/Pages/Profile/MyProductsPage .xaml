@@ -6,9 +6,86 @@
     xmlns:local="using:MakersMarkt.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:data="using:MakersMarkt.Data"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <!-- Define two rows: one for the header, one for the main content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <!-- Header Navigation Menu (Home, Items, Settings) -->
+        <StackPanel Grid.Row="0" Margin="0,20,0,20" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+            <Button Content="Home" Click="HomeButton_Click"/>
+            <Button Content="Items" Click="ItemsButton_Click"/>
+            <Button Content="Settings" Click="SettingsButton_Click"/>
+        </StackPanel>
+
+        <!-- Main Content Area: Divided into two columns (Main Items List and Sidebar) -->
+        <Grid Grid.Row="1" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/> <!-- Takes up remaining space for the products -->
+                <ColumnDefinition Width="300"/> <!-- Fixed width for the top categories sidebar -->
+            </Grid.ColumnDefinitions>
+
+            <!-- My Items Section -->
+            <StackPanel Grid.Column="0" Spacing="10" Margin="0,0,20,0">
+                
+                <!-- Title and Add Item Button -->
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <TextBlock Text="My Items" FontSize="24" FontWeight="Bold"/>
+                    <Button Content="Add Item" Click="AddItem_Click" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- List of the currently logged-in user's products -->
+                <ListView x:Name="ProductsListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Product">
+                            <Grid Margin="0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/> <!-- Width for the product image -->
+                                    <ColumnDefinition Width="*"/>  <!-- Width for the product text details -->
+                                    <ColumnDefinition Width="Auto"/> <!-- Fit-to-content width for the buttons -->
+                                </Grid.ColumnDefinitions>
+                                
+                                <!-- Little img: Displays the product image using data binding -->
+                                <Image Grid.Column="0" Source="{x:Bind ImageUrl}" Width="40" Height="40" Stretch="UniformToFill"/>
+                                
+                                <!-- Name and Category: Displays the product name and its category -->
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock Text="{x:Bind Name}" FontWeight="SemiBold"/>
+                                    <TextBlock Text="{x:Bind Category.Name}" FontSize="12" Foreground="Gray"/>
+                                </StackPanel>
+                                
+                                <!-- Edit and Delete Buttons: Buttons are tagged with the specific Product's ID -->
+                                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                    <Button Content="Edit" Click="EditProduct_Click" Tag="{x:Bind Id}"/>
+                                    <Button Content="Delete" Click="DeleteProduct_Click" Tag="{x:Bind Id}" Foreground="Red"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+
+            <!-- Right Side Static Top Categories Sidebar -->
+            <Border Grid.Column="1" Background="#f9f9f9" Padding="15" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Top Categories" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                    
+                    <!-- Display top category names defined in LoadData -->
+                    <ListView x:Name="TopCategoriesListView" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="data:Category">
+                                <TextBlock Text="{x:Bind Name}" Margin="0,5"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Page>
