@@ -6,9 +6,43 @@
     xmlns:local="using:MakersMarkt.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:data="using:MakersMarkt.Data"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer Padding="20">
+        <StackPanel Spacing="15" MaxWidth="600" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Content="Back" Click="Back_Click"/>
+                <TextBlock Text="Add Product" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
 
-    </Grid>
+            <TextBox x:Name="NameInput" Header="Name" PlaceholderText="Product Name"/>
+            
+            <ComboBox x:Name="CategoryCombo" Header="Category" PlaceholderText="Select a category" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+
+            <TextBox x:Name="ImageUrlInput" Header="Image URL/Path" PlaceholderText="ms-appx:///Assets/placeholder.png"/>
+
+            <TextBox x:Name="PriceInput" Header="Price" PlaceholderText="0.00"/>
+
+            <TextBox x:Name="TypeInput" Header="Type (e.g., Jewelry, Ceramics, Textiles)" PlaceholderText="Product Type"/>
+            
+            <TextBox x:Name="DescriptionInput" Header="Description" TextWrapping="Wrap" AcceptsReturn="True" Height="100" PlaceholderText="Detailed description"/>
+
+            <TextBlock Text="Specifications" FontSize="18" FontWeight="SemiBold" Margin="0,10,0,0"/>
+            
+            <TextBox x:Name="MaterialInput" Header="Material usage" PlaceholderText="Raw materials used"/>
+            <TextBox x:Name="ProductionTimeInput" Header="Production time (hours)" PlaceholderText="0"/>
+            <TextBox x:Name="ComplexityInput" Header="Complexity" PlaceholderText="e.g., High, Medium, Low"/>
+            <TextBox x:Name="SustainabilityInput" Header="Sustainability" PlaceholderText="Lifespan and maintenance rules"/>
+            <TextBox x:Name="UniqueFeaturesInput" Header="Unique features" PlaceholderText="Special techniques or finishes"/>
+
+            <TextBlock x:Name="ErrorText" Foreground="Red" Visibility="Collapsed"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,20,0,0">
+                <Button Content="Save Product" Click="Save_Click" Style="{StaticResource AccentButtonStyle}"/>
+                <Button Content="Cancel" Click="Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
