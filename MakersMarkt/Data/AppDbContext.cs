@@ -56,6 +56,57 @@ namespace MakersMarkt.Data
                 new Category { Id = 3, Name = "Textiel" },
                 new Category { Id = 4, Name = "Kunst" }
             );
+            // Products
+            modelBuilder.Entity<Product>().HasData(
+                new Product
+                {
+                    Id = 1,
+                    Name = "Handgemaakte zilveren ring",
+                    Description = "Zilveren ring met minimalistisch design.",
+                    Type = "Ring",
+                    Material = "Zilver",
+                    ProductionTime = 7,             // dagen
+                    Complexity = "Gemiddeld",
+                    Sustainability = "Gerecycled zilver",
+                    UniqueFeatures = "Handgegraveerd patroon",
+                    Price = 59.99m,
+                    Image = "StoreLogo.png",      // wordt Images/silver_ring.png via ImagePath
+                    MakerId = 1,                    // verwijst naar User Id 1 (moderator)
+                    CategoryId = 1                  // verwijst naar Category Id 1 (Sieraden)
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "Keramische vaas",
+                    Description = "Handgedraaide keramische vaas met glazuurafwerking.",
+                    Type = "Vaas",
+                    Material = "Keramiek",
+                    ProductionTime = 14,
+                    Complexity = "Hoog",
+                    Sustainability = "Lokaal geproduceerde klei",
+                    UniqueFeatures = "Unieke glazuurpatronen",
+                    Price = 89.50m,
+                    Image = "StoreLogo.png",
+                    MakerId = 2,                    // verwijst naar gebruiker1
+                    CategoryId = 2                  // Keramiek
+                },
+                new Product
+                {
+                    Id = 3,
+                    Name = "Geweven wollen sjaal",
+                    Description = "Zachte handgeweven sjaal van merinowol.",
+                    Type = "Sjaal",
+                    Material = "Wol",
+                    ProductionTime = 5,
+                    Complexity = "Laag",
+                    Sustainability = "Biologische wol",
+                    UniqueFeatures = "Uniek kleurverlooppatroon",
+                    Price = 39.95m,
+                    Image = "StoreLogo.png",
+                    MakerId = 2,
+                    CategoryId = 3                  // Text
+                }
+            );
         }
     }
 }

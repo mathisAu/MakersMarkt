@@ -14,7 +14,7 @@ namespace MakersMarkt.Data
         public int ToUserId { get; set; }
 
         public decimal Amount { get; set; }
-        public string Type { get; set; } // purchase / refund
+        public string Type { get; set; }
 
         public DateTime CreatedAt { get; set; }
     }

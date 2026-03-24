@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Media;
 using System.Linq;
 using MakersMarkt.Pages.Product;
 using MakersMarkt.Pages.Moderator;
+using Windows.Storage;
 
 namespace MakersMarkt.Pages.Login
 {
@@ -48,11 +49,13 @@ namespace MakersMarkt.Pages.Login
                 }
 
                 LoggedInUser.CurrentUser = user;
+                var localSettings = ApplicationData.Current.LocalSettings;
+                localSettings.Values["UserId"] = user.Id;
 
                 if (user.Role == "moderator")
                     Frame.Navigate(typeof(ModeratorPanelPage));
                 else
-                    Frame.Navigate(typeof(ProductPage));
+                    Frame.Navigate(typeof(Product.ProductPage));
             }
 
             LoginButton.IsEnabled = true;

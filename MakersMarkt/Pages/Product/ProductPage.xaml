@@ -6,9 +6,60 @@
     xmlns:local="using:MakersMarkt.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MakersMarkt.Data"
     mc:Ignorable="d">
 
-    <Grid>
+    <StackPanel>
+        <StackPanel>
+            <TextBlock Text="Categorieen" />
+            <StackPanel>
+                <ListView
+                x:Name="CategoryListView"
+                IsItemClickEnabled="True"
+                ItemClick="CategoryListView_ItemClick"
+                SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Category">
+                            <!-- x:Name removed, Text bound instead -->
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
 
-    </Grid>
+        <!-- ScrollView -> ScrollViewer -->
+        <ScrollViewer>
+            <StackPanel>
+                <TextBox x:Name="productNameSearchTextBox"
+                     PlaceholderText="Zoek op productnaam"
+                     Width="280"
+                     BorderThickness="1"
+                     CornerRadius="10"
+                     Padding="10,6"
+                     TextChanged="productNameSearchTextBox_TextChanged" />
+
+                <ListView x:Name="ProductListView"
+                      IsItemClickEnabled="True"
+                      ItemClick="ProductListView_ItemClick"
+                      SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Product">
+                            <StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="{x:Bind Name}" />
+                                    <TextBlock Text="{x:Bind Price}" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Image Width="200" Source="{x:Bind ImagePath}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
 </Page>

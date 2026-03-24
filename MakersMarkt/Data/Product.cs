@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,9 @@ namespace MakersMarkt.Data
         public string Sustainability { get; set; }
         public string UniqueFeatures { get; set; }
         public decimal Price { get; set; }
+
+        public string Image { get; set; }
+        public string ImagePath => $"Assets/{Image}";
 
         public int MakerId { get; set; }
         public User Maker { get; set; }
