@@ -40,6 +40,19 @@
                     <Button Content="Add Item" Click="AddItem_Click" VerticalAlignment="Center"/>
                 </StackPanel>
 
+                <!-- Search, Filter, and Sort Controls using simpler XAML properties similar to ProfilePage bindings-->
+                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,5,0,10">
+                    <TextBox x:Name="SearchBox" PlaceholderText="Search name, type, material..." Width="220" TextChanged="SearchBox_TextChanged"/>
+                    <ComboBox x:Name="FilterCategoryCombo" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="FilterComboBox_SelectionChanged" MinWidth="130" PlaceholderText="All Categories"/>
+                    <ComboBox x:Name="SortCombo" SelectionChanged="FilterComboBox_SelectionChanged" MinWidth="130" PlaceholderText="Sort by">
+                        <ComboBoxItem Content="Name (A-Z)" Tag="NameAsc"/>
+                        <ComboBoxItem Content="Name (Z-A)" Tag="NameDesc"/>
+                        <ComboBoxItem Content="Price (Low to High)" Tag="PriceAsc"/>
+                        <ComboBoxItem Content="Price (High to Low)" Tag="PriceDesc"/>
+                        <ComboBoxItem Content="Production Time" Tag="TimeAsc"/>
+                    </ComboBox>
+                </StackPanel>
+
                 <!-- List of the currently logged-in user's products -->
                 <ListView x:Name="ProductsListView">
                     <ListView.ItemTemplate>

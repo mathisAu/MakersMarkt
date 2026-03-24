@@ -23,6 +23,8 @@ namespace MakersMarkt.Pages
    
     public sealed partial class MyProductsPage : Page
     {
+        private List<MakersMarkt.Data.Product> _allMyProducts = new();
+
         public MyProductsPage()
         {
             InitializeComponent();
@@ -47,20 +49,89 @@ namespace MakersMarkt.Pages
             // If a user is logged in, fetch only their products
             if(currentUser != null)
             {
-                var myProducts = context.Products
+                _allMyProducts = context.Products
                     .Include(p => p.Category) // Include Category data so we can display the category name
                     .Where(p => p.MakerId == currentUser.Id) // Filter by the currently logged-in user's ID
                     .ToList();
-                    
-                // Bind the filtered products to the ListView in the XAML
-                ProductsListView.ItemsSource = myProducts;
+            }
+
+            var allCategories = context.Categories.ToList();
+
+            // Insert "All Categories" as a dummy option directly to fit simple ItemSource databinding
+            var categoryOptions = new List<Category> { new Category { Id = 0, Name = "All Categories" } };
+            categoryOptions.AddRange(allCategories);
+            
+            FilterCategoryCombo.ItemsSource = categoryOptions;
+            if (FilterCategoryCombo.SelectedIndex == -1) // Only select default if not already selected
+            {
+                FilterCategoryCombo.SelectedIndex = 0; 
             }
 
             // Load the top 5 categories from the database for the right sidebar
-            var topCategories = context.Categories.Take(5).ToList();
+            var topCategories = allCategories.Take(5).ToList();
             
             // Bind the categories to the TopCategoriesListView in the XAML
             TopCategoriesListView.ItemsSource = topCategories;
+
+            ApplyFiltersAndSort();
+        }
+
+        // Triggered when text in the search box changes
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ApplyFiltersAndSort();
+        }
+
+        // Triggered when combobox selections change
+        private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplyFiltersAndSort();
+        }
+
+        // Applies the active search, filter, and sort definitions continuously across the local _allMyProducts buffer
+        private void ApplyFiltersAndSort()
+        {
+            if (_allMyProducts == null) return;
+
+            var filtered = _allMyProducts.AsEnumerable();
+
+            // 1. Text Search Integration (Checks Name, Type, Specifications like Material/Complexity/UniqueFeatures)
+            string searchText = SearchBox?.Text?.Trim().ToLower() ?? "";
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                filtered = filtered.Where(p => 
+                    (p.Name != null && p.Name.ToLower().Contains(searchText)) || 
+                    (p.Type != null && p.Type.ToLower().Contains(searchText)) ||
+                    (p.Material != null && p.Material.ToLower().Contains(searchText)) ||
+                    (p.Complexity != null && p.Complexity.ToLower().Contains(searchText)) ||
+                    (p.UniqueFeatures != null && p.UniqueFeatures.ToLower().Contains(searchText))
+                );
+            }
+
+            // 2. Category Dropdown Filter
+            if (FilterCategoryCombo?.SelectedValue is int categoryId && categoryId != 0)
+            {
+                filtered = filtered.Where(p => p.CategoryId == categoryId);
+            }
+
+            // 3. Sorting Feature
+            if (SortCombo?.SelectedItem is ComboBoxItem sortItem && sortItem.Tag is string sortTag)
+            {
+                switch (sortTag)
+                {
+                    case "NameAsc": filtered = filtered.OrderBy(p => p.Name); break;
+                    case "NameDesc": filtered = filtered.OrderByDescending(p => p.Name); break;
+                    case "PriceAsc": filtered = filtered.OrderBy(p => p.Price); break;
+                    case "PriceDesc": filtered = filtered.OrderByDescending(p => p.Price); break;
+                    case "TimeAsc": filtered = filtered.OrderBy(p => p.ProductionTime); break;
+                }
+            }
+
+            // Execute bindings explicitly on valid filter execution
+            if (ProductsListView != null)
+            {
+                ProductsListView.ItemsSource = filtered.ToList();
+            }
         }
 
         // Navigates the user to the ProductPage (Home)
