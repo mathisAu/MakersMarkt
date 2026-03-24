@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -13,6 +13,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Layouts\HomeWindow.xaml" />
     <None Remove="Pages\AddProductPage.xaml" />
     <None Remove="Pages\EditProductPage.xaml" />
     <None Remove="Pages\LoginPage.xaml" />
@@ -23,8 +24,9 @@
     <None Remove="Pages\MyProductsPage .xaml" />
     <None Remove="Pages\NotificationsPage.xaml" />
     <None Remove="Pages\OrdersPage.xaml" />
-    <None Remove="Pages\Order\MakeOrderPage.xaml" />
     <None Remove="Pages\ProductPage.xaml" />
+    <None Remove="Pages\Product\DetailPage.xaml" />
+    <None Remove="Pages\Product\OverviewPage.xaml" />
     <None Remove="Pages\ProfilePage.xaml" />
     <None Remove="Pages\RegisterPage.xaml" />
     <None Remove="Pages\ReviewPage.xaml" />
@@ -54,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
+    <PackageReference Include="Mollie.Api" Version="4.19.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
@@ -130,11 +134,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Login\" />
-    <Folder Include="Pages\Product\" />
     <Folder Include="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\Order\MakeOrderPage.xaml">
+    <Page Update="Layouts\HomeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Product\OverviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Product\DetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
