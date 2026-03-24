@@ -1,3 +1,4 @@
+using MakersMarkt.Pages.Login;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -54,6 +55,11 @@ namespace MakersMarkt.Pages.Moderator
                         break;
                 }
             }
+        }
+
+        private void Uitloggen_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage)); // Navigeer terug naar de loginpagina
         }
     }
 }

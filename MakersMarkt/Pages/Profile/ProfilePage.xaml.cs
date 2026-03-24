@@ -106,10 +106,7 @@ namespace MakersMarkt.Pages
                 Frame?.Navigate(typeof(MyProductsPage), User.Id);
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame?.Navigate(typeof(LoginPage));
-        }
+       
 
         private void SeeMore_Click(object sender, RoutedEventArgs e)
         {
