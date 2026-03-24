@@ -9,14 +9,34 @@
     mc:Ignorable="d">
 
     <Grid>
-        <NavigationView x:Name="AdminNavView" PaneDisplayMode="Left" IsSettingsVisible="False" SelectionChanged="AdminNavView_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- NavigationView vult het meeste -->
+            <RowDefinition Height="Auto"/>
+            <!-- Voor de button onderaan -->
+        </Grid.RowDefinitions>
+
+        <!-- NavigationView -->
+        <NavigationView x:Name="AdminNavView"
+                    Grid.Row="0"
+                    PaneDisplayMode="Left"
+                    IsSettingsVisible="False"
+                    SelectionChanged="AdminNavView_SelectionChanged">
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Dashboard" Tag="Dashboard" Icon="Home"/>
                 <NavigationViewItem Content="Gebruikers" Tag="Users" Icon="Contact"/>
                 <NavigationViewItem Content="Producten" Tag="Products" Icon="Shop"/>
                 <NavigationViewItem Content="Rapportages" Tag="Reports" Icon="ReportHacked"/>
             </NavigationView.MenuItems>
+
             <Frame x:Name="AdminContentFrame" Margin="24"/>
         </NavigationView>
+
+        <!-- Uitloggen knop onderaan -->
+        <Button x:Name="Uitloggen"
+            Grid.Row="1"
+            Content="Uitloggen"
+            Click="Uitloggen_Click"
+            Margin="24"/>
     </Grid>
 </Page>
