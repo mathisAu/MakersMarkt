@@ -6,18 +6,36 @@
     xmlns:local="using:MakersMarkt.Pages.Product"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MakersMarkt.Data"
     mc:Ignorable="d">
 
     <StackPanel>
         <StackPanel>
-            <TextBlock></TextBlock>
-            <TextBlock></TextBlock>
-            <TextBlock></TextBlock>
+            <TextBlock x:Name="errors"></TextBlock>
+            <TextBlock x:Name="name"></TextBlock>
+            <TextBlock x:Name="score"></TextBlock>
         </StackPanel>
         <StackPanel>
             <Button x:Name="Buy" Click="Buy_Click">
                 Kopen
             </Button>
         </StackPanel>
+        <StackPanel>
+
+            <ListView x:Name="ReviewListView"
+           IsItemClickEnabled="True"
+           SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Review">
+                        <TextBlock Foreground="White" Text="{ x:Bind Comment }" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock x:Name="commandError" />
+            <NumberBox x:Name="rating" />
+            <TextBox x:Name="review" />
+            <Button Click="Commando_Click" />
+        </StackPanel>
     </StackPanel>
+    
 </Page>

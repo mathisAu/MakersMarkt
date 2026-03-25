@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,15 @@ namespace MakersMarkt.Data
                   Role = "gebruiker",
                   Credit = 100,
                   CreatedAt = new DateTime(2026, 1, 1)
+              },
+              new User
+              {
+                  Id = 3,
+                  Username = "gebruiker2",
+                  PasswordHash = BCrypt.Net.BCrypt.HashPassword("gebruiker123"),
+                  Role = "gebruiker",
+                  Credit = 100,
+                  CreatedAt = new DateTime(2026, 1, 1)
               }
           );
 
@@ -72,7 +82,8 @@ namespace MakersMarkt.Data
                     Price = 59.99m,
                     Image = "StoreLogo.png",      // wordt Images/silver_ring.png via ImagePath
                     MakerId = 1,                    // verwijst naar User Id 1 (moderator)
-                    CategoryId = 1                  // verwijst naar Category Id 1 (Sieraden)
+                    CategoryId = 1,               // verwijst naar Category Id 1 (Sieraden)
+                    Ordered = true,
                 },
                 new Product
                 {
@@ -88,7 +99,8 @@ namespace MakersMarkt.Data
                     Price = 89.50m,
                     Image = "StoreLogo.png",
                     MakerId = 2,                    // verwijst naar gebruiker1
-                    CategoryId = 2                  // Keramiek
+                    CategoryId = 2,           // Keramiek
+                    Ordered = true,
                 },
                 new Product
                 {
@@ -104,9 +116,22 @@ namespace MakersMarkt.Data
                     Price = 39.95m,
                     Image = "StoreLogo.png",
                     MakerId = 2,
-                    CategoryId = 3                  // Text
+                    CategoryId = 3,         // Text
+                    Ordered = true,
                 }
             );
-        }
+            modelBuilder.Entity<Order>().HasData(
+                new Order
+                {
+                    Id = 1,
+                    BuyerId = 2,
+                    ProductId = 1,
+                    TotalPrice = 99.99m,
+                    Status = "in productie"
+                }
+
+
+        );
+        } 
     }
 }

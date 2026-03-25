@@ -39,7 +39,7 @@ namespace MakersMarkt.Pages.Order
             var localSettings = ApplicationData.Current.LocalSettings;
             if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && userIdObj is int userId)
             {
-                OrderListView.ItemsSource = db.Orders.Where(o => o.Id == userId).Include(o => o.Product).ToList();
+                OrderListView.ItemsSource = db.Orders.Where(o => o.BuyerId == userId).Include(o => o.Product).ToList();
             }
         }
         private async void OrderListView_ItemClick(object sender, ItemClickEventArgs e)

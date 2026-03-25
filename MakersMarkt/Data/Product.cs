@@ -29,5 +29,8 @@ namespace MakersMarkt.Data
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public bool Ordered { get; set;  }
+        public string OrderedText = "Besteld" ?? "Niet besteld";
+
     }
 }

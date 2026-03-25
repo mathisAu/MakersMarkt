@@ -10,6 +10,9 @@
     mc:Ignorable="d">
 
     <StackPanel>
+        <Button Click="Button_Click_Create">
+            Post je Item
+        </Button>
         <ListView x:Name="ProductListView"
        IsItemClickEnabled="True"
        SelectionMode="None">
@@ -18,8 +21,10 @@
                     <StackPanel>
                         <TextBlock Text="{x:Bind Name}" />
                         <TextBlock Text="{x:Bind Price}" />
-                        <Button Click="Button_Click_Edit" />
-                        <Button Click="Button_Click_Delete" />
+                        <TextBlock Text="{x:Bind OrderedText }"/>
+                        <Button Click="Button_Click_Open">Bekijk Order</Button>
+                        <Button Click="Button_Click_Edit" >Edit</Button>
+                        <Button Click="Button_Click_Delete" >Delete</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
