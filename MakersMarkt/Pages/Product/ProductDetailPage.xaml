@@ -28,6 +28,8 @@
                            FontSize="28"
                            FontWeight="SemiBold"/>
 
+                <Button Click="Report_Click">🚩</Button>
+
 
             </StackPanel>
 

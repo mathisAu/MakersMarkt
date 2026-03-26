@@ -18,6 +18,7 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System;
 using static System.Formats.Asn1.AsnWriter;
+
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -71,7 +72,78 @@ namespace MakersMarkt.Pages.Product
                 .ToList();
         }
 
+        private async void Report_Click(object sender, RoutedEventArgs e)
+        {
+            var db = new Data.AppDbContext();
+            var localSettings = ApplicationData.Current.LocalSettings;
+            if (localSettings.Values.TryGetValue("UserId", out object userIdObj) &&
+            int.TryParse(userIdObj?.ToString(), out int userId))
+            {
+                ContentDialog? dialog = null;
+                var product = db.Products.FirstOrDefault(p => p.Id == _productId);
+                var saveButton = new Button
+                {
+                    Content = "Save",
+                    Width = 100
+                };
 
+                var panel = new StackPanel
+                {
+                    Spacing = 8
+                };
+
+
+
+                var errors = new TextBlock
+                {
+                    Text = ""
+                };
+
+                var descriptionReportBox = new TextBox
+                {
+                    PlaceholderText = "Beschrijf waarom je dit product rapporteert",
+                    AcceptsReturn = true,
+                    TextWrapping = TextWrapping.Wrap,
+                    MinHeight = 100
+                };
+
+                panel.Children.Add(errors);
+                panel.Children.Add(descriptionReportBox);
+
+                saveButton.Click += async (s, args) =>
+                {
+                    if (string.IsNullOrWhiteSpace(descriptionReportBox.Text))
+                    {
+                        errors.Text = "Vul een beschrijving in.";
+                        return;
+                    }
+
+                    var user = db.Users.FirstOrDefault(u => u.Id == userId);
+
+                    db.Reports.Add(new Report
+                    {
+                        ProductId = _productId,
+                        ReportDescription = descriptionReportBox.Text,
+                    });
+
+                    await db.SaveChangesAsync();
+
+                    dialog?.Hide();
+                };
+
+                panel.Children.Add(saveButton);
+
+                dialog = new ContentDialog
+                {
+                    Title = $"Rapporteer {product.Id}",
+                    Content = panel,
+                    XamlRoot = this.XamlRoot
+                };
+
+                await dialog.ShowAsync();
+                
+            }
+        }
         private async void Buy_Click(object sender, RoutedEventArgs e)
         {
             var db = new Data.AppDbContext();
