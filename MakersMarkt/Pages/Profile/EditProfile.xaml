@@ -1,0 +1,27 @@
+<Page
+    x:Class="MakersMarkt.Pages.Profile.EditProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Padding="20">
+        <StackPanel Width="400" HorizontalAlignment="Center" Spacing="10">
+            <TextBlock Text="Bewerk profiel" FontSize="20" FontWeight="Bold" />
+
+            <TextBlock Text="Gebruikersnaam" />
+            <TextBox x:Name="UsernameBox" />
+
+            <TextBlock Text="Nieuw wachtwoord (leeg = geen wijziging)" />
+            <PasswordBox x:Name="PasswordBox" />
+
+            <TextBlock Text="Bevestig nieuw wachtwoord" />
+            <PasswordBox x:Name="ConfirmPasswordBox" />
+
+            <TextBlock x:Name="ErrorText" Foreground="Red" Visibility="Collapsed" TextWrapping="Wrap" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+                <Button Content="Annuleren" Click="CancelButton_Click" />
+                <Button Content="Opslaan" Click="SaveButton_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

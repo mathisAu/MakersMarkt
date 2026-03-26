@@ -154,5 +154,44 @@ namespace MakersMarkt.Pages.Product
             }
             Frame.Navigate(typeof(Product.ProductDetailPage), product.Id);
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProfilePage));
+
+        }
+
+        private void ItemsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(MyProductsPage));
+
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ArtistsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.Order.ArtistOrderPage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
     }
 }

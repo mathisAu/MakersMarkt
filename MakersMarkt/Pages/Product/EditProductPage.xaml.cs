@@ -139,5 +139,66 @@ namespace MakersMarkt.Pages.Product
                 Frame.GoBack();
             }
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.ProfilePage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
+
+        private void ItemsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.MyProductsPage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ArtistsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.Order.ArtistOrderPage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
     }
 }
