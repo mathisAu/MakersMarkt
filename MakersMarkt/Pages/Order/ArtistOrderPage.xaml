@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MakersMarkt.Pages.Order.ArtistOrderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MakersMarkt.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MakersMarkt.Data"
+    mc:Ignorable="d">
+
+    <Grid Padding="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Spacing="20">
+            <TextBlock Text="Bestelling verzoeken"
+                       FontSize="28"
+                       FontWeight="SemiBold"/>
+
+            <ListView x:Name="OrderListView"
+                      IsItemClickEnabled="True"
+                      ItemClick="OrderListView_ItemClick"
+                      SelectionMode="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Order">
+                        <Border Background="#1F1F1F"
+                                CornerRadius="10"
+                                Padding="16"
+                                Margin="0,6">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="{x:Bind Status}" />
+                                <TextBlock Text="{x:Bind TotalPrice}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Spacing="20">
+            <TextBlock Text="Voormalige bestellingen"
+                       FontSize="28"
+                       FontWeight="SemiBold"/>
+
+            <ListView x:Name="OldOrderListView"
+                      SelectionMode="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Order">
+                        <Border Background="#1F1F1F"
+                                CornerRadius="10"
+                                Padding="16"
+                                Margin="0,6">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="{x:Bind Status}" />
+                                <TextBlock Text="{x:Bind TotalPrice}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

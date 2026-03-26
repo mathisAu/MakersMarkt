@@ -19,7 +19,9 @@
         <StackPanel Grid.Row="0" Margin="0,20,0,20" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
             <Button Content="Home" Click="HomeButton_Click"/>
             <Button Content="Items" Click="ItemsButton_Click"/>
-            <Button Content="Settings" Click="SettingsButton_Click"/>
+            <Button Content="Customer Orders" Click="ArtistsButton_Click"/>
+            <Button Content="Buy products" Click="ProductsButton_Click"/>
+            <!--<Button Content="Settings" Click="SettingsButton_Click"/>-->
         </StackPanel>
 
         <!-- Main content -->

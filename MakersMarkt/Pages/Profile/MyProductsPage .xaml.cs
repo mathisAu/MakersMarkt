@@ -139,7 +139,10 @@ namespace MakersMarkt.Pages
         {
             Frame.Navigate(typeof(ProductPage)); // Navigate to the main product overview
         }
-
+private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Order.OrdersPage)); // Navigate to the main product overview
+        }
         // Handles clicks on the "Items" button in the header
         private void ItemsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -147,10 +150,10 @@ namespace MakersMarkt.Pages
         }
 
         // Navigates the user back to their Profile page
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(ProfilePage)); 
-        }
+        //private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(ProfilePage)); 
+        //}
 
         // Navigates the user to the page where they can add a new product
         private void AddItem_Click(object sender, RoutedEventArgs e)
@@ -209,3 +212,4 @@ namespace MakersMarkt.Pages
         }
     }
 }
+

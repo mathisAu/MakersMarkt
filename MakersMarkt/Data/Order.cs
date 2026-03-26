@@ -12,8 +12,13 @@ namespace MakersMarkt.Data
         public int BuyerId { get; set; }
         public User Buyer { get; set; }
 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+
         public decimal TotalPrice { get; set; }
         public string Status { get; set; }
+
+        public string? RejectDescription { get; set; }
 
         public List<OrderItem> Items { get; set; }
         public List<OrderStatusHistory> History { get; set; }

@@ -6,9 +6,118 @@
     xmlns:local="using:MakersMarkt.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MakersMarkt.Data"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Padding="30" ColumnSpacing="40">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Categorieen -->
+        <StackPanel Grid.Column="0" Spacing="16">
+
+            <TextBlock Text="Categorieën"
+                   FontSize="24"
+                   FontWeight="SemiBold"/>
+
+            <ListView
+            x:Name="CategoryListView"
+            IsItemClickEnabled="True"
+            ItemClick="CategoryListView_ItemClick"
+            SelectionMode="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Category">
+
+                        <Border Background="#1F1F1F"
+                            CornerRadius="8"
+                            Padding="10"
+                            Margin="0,4">
+
+                            <TextBlock Text="{x:Bind Name}"
+                                   FontSize="16"/>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackPanel>
+
+
+        <!-- Producten -->
+        <StackPanel Grid.Column="1" Spacing="20">
+
+            <!-- Zoekveld -->
+            <TextBox x:Name="productNameSearchTextBox"
+                 PlaceholderText="🔎 Zoek op productnaam"
+                 Width="320"
+                 BorderThickness="1"
+                 CornerRadius="10"
+                 Padding="10,6"
+                 TextChanged="productNameSearchTextBox_TextChanged" />
+
+
+            <ScrollViewer>
+
+                <ListView x:Name="ProductListView"
+                      IsItemClickEnabled="True"
+                      ItemClick="ProductListView_ItemClick"
+                      SelectionMode="None">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Product">
+
+                            <Border Background="#1F1F1F"
+                                CornerRadius="12"
+                                Padding="12"
+                                Margin="0,6">
+
+                                <Grid ColumnSpacing="20">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Product afbeelding -->
+                                    <Image Width="120"
+                                       Height="120"
+                                       Stretch="UniformToFill"
+                                       Source="{x:Bind ImageUrl}"
+                                      />
+                                    <!-- Product info -->
+                                    <StackPanel Grid.Column="1"
+                                            Spacing="6">
+
+                                        <TextBlock Text="{x:Bind Name}"
+                                               FontSize="18"
+                                               FontWeight="SemiBold"/>
+
+                                        <TextBlock Text="{x:Bind Price}"
+                                               FontSize="16"
+                                               Foreground="#8CD17D"
+                                               FontWeight="Bold"/>
+
+                                    </StackPanel>
+
+                                </Grid>
+
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+            </ScrollViewer>
+
+        </StackPanel>
 
     </Grid>
 </Page>

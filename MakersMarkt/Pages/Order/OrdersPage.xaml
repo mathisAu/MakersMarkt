@@ -6,9 +6,25 @@
     xmlns:local="using:MakersMarkt.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MakersMarkt.Data"
     mc:Ignorable="d">
 
-    <Grid>
+    <StackPanel>
+        <TextBlock Text="Order history" />
 
-    </Grid>
+        <ListView x:Name="OrderListView"
+                  IsItemClickEnabled="True"
+                  ItemClick="OrderListView_ItemClick"
+                  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Order">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Product.Name}" />
+                        <TextBlock Text="{x:Bind Status}" />
+                        <TextBlock Text="{x:Bind TotalPrice}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
 </Page>

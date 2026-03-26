@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -23,6 +23,7 @@
     <None Remove="Pages\MyProductsPage .xaml" />
     <None Remove="Pages\NotificationsPage.xaml" />
     <None Remove="Pages\OrdersPage.xaml" />
+    <None Remove="Pages\Order\ArtistOrderPage.xaml" />
     <None Remove="Pages\Order\MakeOrderPage.xaml" />
     <None Remove="Pages\ProductPage.xaml" />
     <None Remove="Pages\ProfilePage.xaml" />
@@ -131,6 +132,11 @@
   <ItemGroup>
     <Folder Include="Pages\Login\" />
     <Folder Include="Pages\Profile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Order\ArtistOrderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\Order\MakeOrderPage.xaml">
