@@ -188,5 +188,30 @@ namespace MakersMarkt.Pages.Order
 
             return panel;
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProfilePage));
+        }
+
+        private void ItemsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(MyProductsPage));
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void OrderHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(MakersMarkt.Pages.Order.ArtistOrderPage));
+        }
     }
 }
