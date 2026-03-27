@@ -1,6 +1,7 @@
 using MakersMarkt.Data;
 using MakersMarkt.Pages.Login;
 using MakersMarkt.Pages.Product;
+using MakersMarkt.Pages.Profile;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -38,8 +39,6 @@ namespace MakersMarkt.Pages
             this.InitializeComponent();
             this.DataContext = this;
             LoadNotifications();
-
-           
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -48,6 +47,13 @@ namespace MakersMarkt.Pages
 
             int userId = e.Parameter is int id ? id : 2;
             await LoadUserAsync(userId);
+        }
+
+        private async void EditProfile_Click(object sender, RoutedEventArgs e)
+        {
+            if (User == null) return;
+
+            Frame?.Navigate(typeof(EditProfile), User.Id);
         }
 
         private async Task LoadUserAsync(int userId)
@@ -111,6 +117,13 @@ namespace MakersMarkt.Pages
         {
             Frame?.Navigate(typeof(ProductPage));
         }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (User != null)
+                Frame?.Navigate(typeof(ProfilePage), User.Id);
+        }
+
         private void ItemsButton_Click(object sender, RoutedEventArgs e)
         {
             if (User != null)
@@ -215,4 +228,6 @@ private void ArtistsButton_Click(object sender, RoutedEventArgs e)
             AppNotificationManager.Default.Show(notification);
         }
     }
+
+
 }

@@ -9,107 +9,119 @@
     xmlns:models="using:MakersMarkt.Data"
     mc:Ignorable="d">
 
-   <ScrollViewer>
-    
-        <StackPanel Spacing="20" Padding="30">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <!-- Product info -->
-            <StackPanel Spacing="6">
+        <!-- Header Navigation Menu -->
+        <StackPanel x:Name="NavigationHeader" Grid.Row="0" Margin="0,20,0,20" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+            <Button Content="Home" Click="HomeButton_Click"/>
+            <Button Content="Profile" Click="ProfileButton_Click"/>
+            <Button Content="My Items" Click="ItemsButton_Click"/>
+            <Button Content="Buy Products" Click="ProductsButton_Click"/>
+            <Button x:Name="OrderHistoryButton" Content="Order History" Click="ArtistsButton_Click" Visibility="Collapsed"/>
+        </StackPanel>
 
-                <TextBlock x:Name="errors"
-                           Foreground="Red"
-                           FontSize="14"/>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Spacing="20" Padding="30">
 
-                <TextBlock x:Name="name"
-                           FontSize="28"
-                           FontWeight="SemiBold"/>
+                <!-- Product info -->
+                <StackPanel Spacing="6">
 
-                <TextBlock x:Name="score"
-                           FontSize="28"
-                           FontWeight="SemiBold"/>
+                    <TextBlock x:Name="errors"
+                               Foreground="Red"
+                               FontSize="14"/>
+
+                    <TextBlock x:Name="name"
+                               FontSize="28"
+                               FontWeight="SemiBold"/>
 
                 <Button Click="Report_Click">🚩</Button>
 
 
-            </StackPanel>
+
+                </StackPanel>
 
 
-            <!-- Buy button -->
-            <Button x:Name="Buy"
-                    Content="Kopen"
-                    Click="Buy_Click"
-                    HorizontalAlignment="Left"
-                    Padding="16,8"
-                    CornerRadius="6"/>
-
-
-            <!-- Reviews -->
-            <StackPanel Spacing="10">
-
-                <TextBlock Text="Reviews"
-                           FontSize="20"
-                           FontWeight="SemiBold"/>
-
-                <ListView x:Name="ReviewListView"
-                          SelectionMode="None">
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Review">
-
-                            <Border Background="#1F1F1F"
-                                    CornerRadius="8"
-                                    Padding="12"
-                                    Margin="0,4">
-
-                                <StackPanel>
-
-                                    <TextBlock Text="{x:Bind Rating}"
-                                               FontWeight="SemiBold"/>
-
-                                    <TextBlock Text="{x:Bind Comment}"
-                                               TextWrapping="WrapWholeWords"
-                                               Foreground="White"/>
-
-                                </StackPanel>
-
-                            </Border>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-
-                </ListView>
-
-            </StackPanel>
-
-
-            <!-- Add review -->
-            <StackPanel Spacing="10">
-
-                <TextBlock Text="Review plaatsen"
-                           FontSize="18"
-                           FontWeight="SemiBold"/>
-
-                <TextBlock x:Name="commandError"
-                           Foreground="Red"/>
-
-                <NumberBox x:Name="rating"
-                           Header="Rating (1-5)"
-                           Minimum="1"
-                           Maximum="5"/>
-
-                <TextBox x:Name="review"
-                         Header="Comment"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="80"/>
-
-                <Button Content="Plaats review"
-                        Click="Commando_Click"
+                <!-- Buy button -->
+                <Button x:Name="Buy"
+                        Content="Kopen"
+                        Click="Buy_Click"
                         HorizontalAlignment="Left"
-                        Padding="14,6"/>
+                        Padding="16,8"
+                        CornerRadius="6"/>
+
+
+                <!-- Reviews -->
+                <StackPanel Spacing="10">
+
+                    <TextBlock Text="Reviews"
+                               FontSize="20"
+                               FontWeight="SemiBold"/>
+
+                    <ListView x:Name="ReviewListView"
+                              SelectionMode="None">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Review">
+
+                                <Border Background="#1F1F1F"
+                                        CornerRadius="8"
+                                        Padding="12"
+                                        Margin="0,4">
+
+                                    <StackPanel>
+
+                                        <TextBlock Text="{x:Bind Rating}"
+                                                   FontWeight="SemiBold"/>
+
+                                        <TextBlock Text="{x:Bind Comment}"
+                                                   TextWrapping="WrapWholeWords"
+                                                   Foreground="White"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                </StackPanel>
+
+
+                <!-- Add review -->
+                <StackPanel Spacing="10">
+
+                    <TextBlock Text="Review plaatsen"
+                               FontSize="18"
+                               FontWeight="SemiBold"/>
+
+                    <TextBlock x:Name="commandError"
+                               Foreground="Red"/>
+
+                    <NumberBox x:Name="rating"
+                               Header="Rating (1-5)"
+                               Minimum="1"
+                               Maximum="5"/>
+
+                    <TextBox x:Name="review"
+                             Header="Comment"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             Height="80"/>
+
+                    <Button Content="Plaats review"
+                            Click="Commando_Click"
+                            HorizontalAlignment="Left"
+                            Padding="14,6"/>
+
+                </StackPanel>
 
             </StackPanel>
-
-        </StackPanel>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
 </Page>

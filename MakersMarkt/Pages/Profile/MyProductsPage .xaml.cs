@@ -137,23 +137,52 @@ namespace MakersMarkt.Pages
         // Navigates the user to the ProductPage (Home)
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ProductPage)); // Navigate to the main product overview
+            Frame?.Navigate(typeof(ProductPage)); // Navigate to the main product overview
         }
-private void OrdersButton_Click(object sender, RoutedEventArgs e)
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Order.OrdersPage)); // Navigate to the main product overview
+            try
+            {
+                var currentUser = LoggedInUser.CurrentUser;
+                if (currentUser != null)
+                    Frame?.Navigate(typeof(ProfilePage), currentUser.Id);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
         }
+
         // Handles clicks on the "Items" button in the header
         private void ItemsButton_Click(object sender, RoutedEventArgs e)
         {
             // The user is already on the items page, so we don't need to navigate away
         }
 
-        // Navigates the user back to their Profile page
-        //private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Frame.Navigate(typeof(ProfilePage)); 
-        //}
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ArtistsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var currentUser = LoggedInUser.CurrentUser;
+                if (currentUser != null)
+                    Frame?.Navigate(typeof(Order.ArtistOrderPage), currentUser.Id);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
+
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(Order.OrdersPage)); // Navigate to the main product overview
+        }
 
         // Navigates the user to the page where they can add a new product
         private void AddItem_Click(object sender, RoutedEventArgs e)

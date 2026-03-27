@@ -17,12 +17,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Header Navigation Menu (Home, Items, Settings) -->
-        <StackPanel Grid.Row="0" Margin="0,20,0,20" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+        <!-- Header Navigation Menu -->
+        <StackPanel x:Name="NavigationHeader" Grid.Row="0" Margin="0,20,0,20" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
             <Button Content="Home" Click="HomeButton_Click"/>
-            <Button Content="Items" Click="ItemsButton_Click"/>
-            <Button Content="Items" Click="OrdersButton_Click"/>
-            <!--<Button Content="Settings" Click="SettingsButton_Click"/>-->
+            <Button Content="Profile" Click="ProfileButton_Click"/>
+            <Button Content="My Items" Click="ItemsButton_Click"/>
+            <Button Content="Buy Products" Click="ProductsButton_Click"/>
+            <Button x:Name="OrderHistoryButton" Content="Order History" Click="ArtistsButton_Click" Visibility="Collapsed"/>
         </StackPanel>
 
         <!-- Main Content Area: Divided into two columns (Main Items List and Sidebar) -->

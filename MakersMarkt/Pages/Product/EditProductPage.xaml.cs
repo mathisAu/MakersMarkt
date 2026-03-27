@@ -15,6 +15,8 @@ using Windows.Foundation.Collections;
 using MakersMarkt.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,6 +29,7 @@ namespace MakersMarkt.Pages.Product
     public sealed partial class EditProductPage : Page
     {
         private int _productId;
+        private string? _selectedImagePath;
 
         public EditProductPage()
         {
@@ -65,6 +68,10 @@ namespace MakersMarkt.Pages.Product
             {
                 NameInput.Text = product.Name ?? "";
                 ImageUrlInput.Text = product.ImageUrl ?? "";
+                if (ImageStatusText != null && !string.IsNullOrWhiteSpace(product.ImageUrl))
+                {
+                    ImageStatusText.Text = $"Current: {Path.GetFileName(product.ImageUrl)}";
+                }
                 PriceInput.Text = product.Price.ToString("0.00");
                 TypeInput.Text = product.Type ?? "";
                 DescriptionInput.Text = product.Description ?? "";
@@ -83,6 +90,29 @@ namespace MakersMarkt.Pages.Product
             {
                 ErrorText.Text = "Product not found.";
                 ErrorText.Visibility = Visibility.Visible;
+            }
+        }
+
+        private async void BrowseImage_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new FileOpenPicker();
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+            picker.FileTypeFilter.Add(".png");
+            picker.FileTypeFilter.Add(".gif");
+            picker.FileTypeFilter.Add(".bmp");
+            picker.FileTypeFilter.Add(".webp");
+
+            var file = await picker.PickSingleFileAsync();
+
+            if (file != null)
+            {
+                _selectedImagePath = file.Path;
+                ImageUrlInput.Text = file.Name;
+                if (ImageStatusText != null)
+                {
+                    ImageStatusText.Text = $"Selected: {file.Name}";
+                }
             }
         }
 
@@ -107,7 +137,8 @@ namespace MakersMarkt.Pages.Product
             {
                 product.Name = NameInput.Text;
                 product.CategoryId = (int)CategoryCombo.SelectedValue;
-                product.ImageUrl = ImageUrlInput.Text;
+                // Use selected image path if available, otherwise keep existing or use input
+                product.ImageUrl = _selectedImagePath ?? ImageUrlInput.Text ?? product.ImageUrl;
                 product.Price = price;
                 product.Type = TypeInput.Text ?? "";
                 product.Description = DescriptionInput.Text ?? "";
@@ -137,6 +168,67 @@ namespace MakersMarkt.Pages.Product
             if (Frame.CanGoBack)
             {
                 Frame.GoBack();
+            }
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.ProfilePage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
+
+        private void ItemsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.MyProductsPage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
+            }
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(ProductPage));
+        }
+
+        private void ArtistsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                if (localSettings.Values.TryGetValue("UserId", out object userIdObj) && 
+                    int.TryParse(userIdObj?.ToString(), out int userId))
+                {
+                    Frame?.Navigate(typeof(Pages.Order.ArtistOrderPage), userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Navigation error: {ex.Message}");
             }
         }
     }
