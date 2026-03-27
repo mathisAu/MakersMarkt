@@ -38,9 +38,8 @@
                                FontSize="28"
                                FontWeight="SemiBold"/>
 
-                    <TextBlock x:Name="score"
-                               FontSize="28"
-                               FontWeight="SemiBold"/>
+                <Button Click="Report_Click">🚩</Button>
+
 
 
                 </StackPanel>

@@ -6,6 +6,7 @@ namespace MakersMarkt.Data
     public class AppDbContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
+        
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;
@@ -14,7 +15,7 @@ namespace MakersMarkt.Data
         public DbSet<Review> Reviews { get; set; } = null!;
         public DbSet<Notification> Notifications { get; set; } = null!;
         public DbSet<CreditTransaction> CreditTransactions { get; set; } = null!;
-
+        public DbSet<Report> Reports { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
