@@ -46,5 +46,10 @@ namespace MakersMarkt
             _window = new MainWindow();
             _window.Activate();
         }
+
+        public Window? GetMainWindow()
+        {
+            return _window;
+        }
     }
 }

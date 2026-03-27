@@ -36,7 +36,14 @@
                 
                 <ComboBox x:Name="CategoryCombo" Header="Category" PlaceholderText="Select a category" DisplayMemberPath="Name" SelectedValuePath="Id"/>
 
-                <TextBox x:Name="ImageUrlInput" Header="Image URL/Path" PlaceholderText="ms-appx:///Assets/placeholder.png"/>
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Product Image" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBox x:Name="ImageUrlInput" Header="Image Path" PlaceholderText="Select image from file or enter URL"/>
+                        <Button x:Name="BrowseImageButton" Content="Browse" Click="BrowseImage_Click" VerticalAlignment="Bottom" Padding="16,8"/>
+                    </StackPanel>
+                    <TextBlock x:Name="ImageStatusText" FontSize="12" Foreground="Gray"/>
+                </StackPanel>
 
                 <TextBox x:Name="PriceInput" Header="Price" PlaceholderText="0.00"/>
 
